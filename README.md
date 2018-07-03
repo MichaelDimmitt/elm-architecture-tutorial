@@ -26,3 +26,8 @@ elm-reactor
 ```
 
 Now go to [http://localhost:8000/](http://localhost:8000/) and start looking at the `examples/` directory. When you edit an Elm file, just refresh the corresponding page in your browser and it will recompile!
+
+## Command to build elm files into .html files
+```bash
+for file in ./examples/*.elm ; do ( dir="${file##*/}"; name="${dir%.*}"; rm -rf build; mkdir build; elm-make examples/$name.elm --output build/$name.html); done
+```
